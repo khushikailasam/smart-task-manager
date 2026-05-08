@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Task Manager</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Smart Task Manager</h1>
+
+        <!-- Task Form -->
+        <div class="task-form">
+
+            <input type="text"
+                   id="title"
+                   placeholder="Task Title">
+
+            <input type="text"
+                   id="description"
+                   placeholder="Description">
+
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <select id="status">
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <button onclick="addTask()">
+                Add Task
+            </button>
+
+        </div>
+
+        <!-- Analytics -->
+        <div class="analytics">
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <p id="pendingTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completion %</h3>
+                <p id="completionPercentage">0%</p>
+            </div>
+
+        </div>
+
+        <!-- Task List -->
+        <div id="taskList"
+             class="task-list">
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
